@@ -13,7 +13,7 @@ HunterGate(
         #        LOCAL
 )
 
-project(suggestion)
+project(scanner-client)
 
 hunter_add_package(Beast)
 find_package(Beast CONFIG REQUIRED)
