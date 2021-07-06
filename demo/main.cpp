@@ -51,7 +51,7 @@ int main(int argc, char** argv)
       http::response<http::string_body> res;
       http::read(stream, buffer, res);
       std::cout << res.body() << std::endl;
-      std::cout << "Do u want to continue? Y/n" << std::endl;
+      std::cout << "Do u want to continue? Y/n" << std::endl; //todo: delete or fix this ficha
       std::string continue_choice;
       std:: cin >> continue_choice;
       if ( continue_choice == "n" || continue_choice == "N"){
