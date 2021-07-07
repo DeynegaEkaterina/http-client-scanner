@@ -5,15 +5,13 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include <iomanip>
 #include "filesystem"
 
 
 namespace beast = boost::beast;
 namespace http = beast::http;
 namespace net = boost::asio;
-using tcp = net::ip::tcp;           
-bool status = true;
+using tcp = net::ip::tcp;
 
 int main(int argc, char** argv)
 {
@@ -30,7 +28,6 @@ int main(int argc, char** argv)
     auto const host = "0.0.0.0";
     auto const port = "8080";
 
-    while(status) {
         net::io_context ioc;
 
     tcp::resolver resolver(ioc);
@@ -51,18 +48,11 @@ int main(int argc, char** argv)
       http::response<http::string_body> res;
       http::read(stream, buffer, res);
       std::cout << res.body() << std::endl;
-      std::cout << "Do u want to continue? Y/n" << std::endl; //todo: delete or fix this ficha
-      std::string continue_choice;
-      std:: cin >> continue_choice;
-      if ( continue_choice == "n" || continue_choice == "N"){
-        status = false;
-      }
       beast::error_code ec;
       stream.socket().shutdown(tcp::socket::shutdown_both, ec);
       if (ec && ec != beast::errc::not_connected) throw beast::system_error{ec};
     }
 
-  }
   catch(std::exception const& e)
   {
     std::cerr << "Error: " << e.what() << std::endl;

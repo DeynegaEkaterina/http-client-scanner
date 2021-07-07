@@ -1,5 +1,5 @@
 //
-// Copyright by ekaterina on 29.03.2021.
+// Copyright by ekaterina on 04.07.21
 //
 
 #ifndef SUGGESTION_HEADER_HPP_
